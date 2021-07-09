@@ -1,6 +1,6 @@
 {
   "name": "@laijuthomas/angular-spinner",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,7 +14,7 @@
     "build:lib": "ng build angular-spinner",
     "build-prod:lib": "ng build angular-spinner --configuration production",
     "release": "standard-version",
-    "publish:lib": "npm run copy:readme && npm run copy:changelog && npm run copy:license && npm publish ./dist/angular-spinner",
+    "publish:lib": "npm run copy:readme && npm run copy:changelog && npm run copy:license && npm publish ./dist/angular-spinner --access public",
     "copy:readme": "cpx README.md dist/angular-spinner",
     "copy:changelog": "cpx CHANGELOG.md dist/angular-spinner",
     "copy:license": "cpx LICENSE dist/angular-spinner",
