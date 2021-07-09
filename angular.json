@@ -1,0 +1,180 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "angular-spinner": {
+      "projectType": "library",
+      "root": "projects/angular-spinner",
+      "sourceRoot": "projects/angular-spinner/src",
+      "prefix": "lib",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/angular-spinner/tsconfig.lib.json",
+            "project": "projects/angular-spinner/ng-package.json"
+          }
+        ,          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-spinner/tsconfig.lib.prod.json"
+            }
+          }
+},
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-spinner/src/test.ts",
+            "tsConfig": "projects/angular-spinner/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-spinner/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-spinner/tsconfig.lib.json",
+              "projects/angular-spinner/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "angular-spinner-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/angular-spinner-app",
+      "sourceRoot": "projects/angular-spinner-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/angular-spinner-app",
+            "index": "projects/angular-spinner-app/src/index.html",
+            "main": "projects/angular-spinner-app/src/main.ts",
+            "polyfills": "projects/angular-spinner-app/src/polyfills.ts",
+            "tsConfig": "projects/angular-spinner-app/tsconfig.app.json",
+            "assets": [
+              "projects/angular-spinner-app/src/favicon.ico",
+              "projects/angular-spinner-app/src/assets"
+            ],
+            "styles": [
+              "projects/angular-spinner-app/src/styles.scss"
+            ],
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/angular-spinner-app/src/environments/environment.ts",
+                  "with": "projects/angular-spinner-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-spinner-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-spinner-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-spinner-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-spinner-app/src/test.ts",
+            "polyfills": "projects/angular-spinner-app/src/polyfills.ts",
+            "tsConfig": "projects/angular-spinner-app/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-spinner-app/karma.conf.js",
+            "assets": [
+              "projects/angular-spinner-app/src/favicon.ico",
+              "projects/angular-spinner-app/src/assets"
+            ],
+            "styles": [
+              "projects/angular-spinner-app/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-spinner-app/tsconfig.app.json",
+              "projects/angular-spinner-app/tsconfig.spec.json",
+              "projects/angular-spinner-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/angular-spinner-app/e2e/protractor.conf.js",
+            "devServerTarget": "angular-spinner-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-spinner-app:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "angular-spinner-app",
+  "cli": {
+    "analytics": "fbddda2f-258b-4004-8062-d701809d0a1c"
+  }
+}
