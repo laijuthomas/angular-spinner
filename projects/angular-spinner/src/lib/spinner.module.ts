@@ -6,9 +6,8 @@ import { AngularSpinnerDirective } from './spinner.directive';
 
 
 @NgModule({
-  imports: [CommonModule],
-  exports: [AngularSpinnerComponent, AngularSpinnerDirective],
-  declarations: [AngularSpinnerComponent, AngularSpinnerDirective],
-  entryComponents: [AngularSpinnerComponent],
+    imports: [CommonModule],
+    exports: [AngularSpinnerComponent, AngularSpinnerDirective],
+    declarations: [AngularSpinnerComponent, AngularSpinnerDirective]
 })
 export class AngularSpinnerModule {}
