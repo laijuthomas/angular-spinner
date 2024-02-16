@@ -19,13 +19,13 @@
           "options": {
             "tsConfig": "projects/angular-spinner/tsconfig.lib.json",
             "project": "projects/angular-spinner/ng-package.json"
-          }
-        ,          "configurations": {
+          },
+          "configurations": {
             "production": {
               "tsConfig": "projects/angular-spinner/tsconfig.lib.prod.json"
             }
           }
-},
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -116,23 +116,6 @@
             "browserTarget": "angular-spinner-app:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/angular-spinner-app/src/test.ts",
-            "polyfills": "projects/angular-spinner-app/src/polyfills.ts",
-            "tsConfig": "projects/angular-spinner-app/tsconfig.spec.json",
-            "karmaConfig": "projects/angular-spinner-app/karma.conf.js",
-            "assets": [
-              "projects/angular-spinner-app/src/favicon.ico",
-              "projects/angular-spinner-app/src/assets"
-            ],
-            "styles": [
-              "projects/angular-spinner-app/src/styles.css"
-            ],
-            "scripts": []
-          }
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
@@ -144,11 +127,21 @@
               "devServerTarget": "angular-spinner-app:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/**/*.ts",
+              "projects/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "fbddda2f-258b-4004-8062-d701809d0a1c"
+    "analytics": "fbddda2f-258b-4004-8062-d701809d0a1c",
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }
