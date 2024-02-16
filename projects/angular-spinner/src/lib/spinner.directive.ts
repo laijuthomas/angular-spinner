@@ -1,8 +1,6 @@
 /* eslint-disable @angular-eslint/directive-selector */
 
 import {
-  ComponentFactoryResolver,
-  ComponentFactory,
   ComponentRef,
   Directive,
   ElementRef,
@@ -18,7 +16,6 @@ import { AngularSpinnerComponent } from './spinner.component';
 export class AngularSpinnerDirective implements OnInit {
 
   spinner: ComponentRef<AngularSpinnerComponent>;
-  componentFactory: ComponentFactory<AngularSpinnerComponent>;
 
   @HostBinding('class.spinner-container') isSpinnerExist = false;
 
@@ -40,9 +37,10 @@ export class AngularSpinnerDirective implements OnInit {
   /**
    * Directive value - show or hide spinner
    */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('angularSpinner')
   set appSpinner(val: boolean) {
-    if (this.componentFactory) {
+    if (this.spinner) {
       if (val) {
         this.show();
       } else {
@@ -50,19 +48,21 @@ export class AngularSpinnerDirective implements OnInit {
       }
     } else {
       this.shouldShow = val;
+      if (this.shouldShow) {
+        this.show();
+      }
     }
   }
 
   private shouldShow = false;
 
-  constructor(private directiveView: ViewContainerRef,
-    private componentFactoryResolver: ComponentFactoryResolver,
+  constructor(
+    private directiveView: ViewContainerRef,
     private renderer: Renderer2,
-    private directiveElement: ElementRef) {
-  }
+    private directiveElement: ElementRef
+  ) { }
 
   ngOnInit() {
-    this.componentFactory = this.componentFactoryResolver.resolveComponentFactory(AngularSpinnerComponent);
     if (this.shouldShow) {
       this.show();
     }
@@ -77,7 +77,7 @@ export class AngularSpinnerDirective implements OnInit {
 
   show() {
     if (!this.isSpinnerExist) {
-      this.spinner = this.directiveView.createComponent<AngularSpinnerComponent>(this.componentFactory);
+      this.spinner = this.directiveView.createComponent(AngularSpinnerComponent);
       this.setInstanceInputs(this.spinner.instance);
       this.spinner.changeDetectorRef.detectChanges();
       this.renderer.appendChild(this.directiveElement.nativeElement, this.spinner.location.nativeElement);
