@@ -1,6 +1,6 @@
 {
   "name": "@laijuthomas/angular-spinner",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A simple spinner module for Angular.",
   "author": "Laiju Thomas <iamlaijuthomas@gmail.com>",
   "repository": "https://github.com/laijuthomas/angular-spinner",
@@ -10,8 +10,8 @@
     "url": "https://github.com/laijuthomas/angular-spinner/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^16.2.12",
-    "@angular/core": "^16.2.12"
+    "@angular/common": "^17.2.22",
+    "@angular/core": "^17.2.2"
   },
   "dependencies": {
     "tslib": "^2.0.0"
