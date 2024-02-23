@@ -102,18 +102,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-spinner-app:build"
+            "buildTarget": "angular-spinner-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-spinner-app:build:production"
+              "buildTarget": "angular-spinner-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-spinner-app:build"
+            "buildTarget": "angular-spinner-app:build"
           }
         },
         "e2e": {
