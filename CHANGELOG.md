@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/laijuthomas/angular-spinner/compare/v1.1.1...v1.2.0) (2024-02-23)
+
+
+### Features
+
+* **core:** update angular 17 ([d7cd149](https://github.com/laijuthomas/angular-spinner/commit/d7cd14956e26ea5cedd3eeeaf4ccae640e755ffd))
+* **core:** update angular 17 ([ded5323](https://github.com/laijuthomas/angular-spinner/commit/ded5323f076530fd6007a584f91f294b86127dcf))
+
 ### [1.1.1](https://github.com/laijuthomas/angular-spinner/compare/v1.1.0...v1.1.1) (2024-02-16)
 
 ## [1.1.0](https://github.com/laijuthomas/angular-spinner/compare/v1.0.0...v1.1.0) (2024-02-16)
